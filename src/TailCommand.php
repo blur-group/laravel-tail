@@ -14,14 +14,14 @@ class TailCommand extends Command
      *
      * @var string
      */
-    protected $name = 'tail';
+    protected $name = 'pax:tail';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Tail the latest logfile';
+    protected $description = 'Pax version of Tail the latest logfile';
 
     /**
      * Create a new command instance.
@@ -57,7 +57,9 @@ class TailCommand extends Command
 
         $lines = $this->option('lines');
 
+        $this->info('======================================================================================');
         $this->info('start tailing '.$path);
+        $this->info('--------------------------------------------------------------------------------------');
 
         $tailCommand = 'tail -f -n '.$lines.' '.escapeshellarg($path);
 
